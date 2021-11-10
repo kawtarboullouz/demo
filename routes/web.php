@@ -18,6 +18,14 @@ use App\Http\Controllers\PeoductController;
 
 
 Route::get('/','ProductController@index');
+Route::get('/add-product','ProductController@create');
+Route::post('/add-product','ProductController@strore');
+Route::get('/delete-product/{product}','ProductController@delete');
+
+Route::get('/category','CategoryController@index');
+Route::get('/add-category','CategoryController@create');
+Route::post('/add-category','CategoryController@strore');
+
 Route::get('/home', function () {
    return view('home');
 });

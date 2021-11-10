@@ -80,29 +80,38 @@
                 </div>
             @endif
 -->
-            
+            <a href="{{ url('/home') }}">Home</a>
                 
                 <div class="container">
                   <h3>Products</h3>
+                  <a class= "btn btn-primary float-right mb-4" href="{{ url('/add-product') }}">Add Product</a>
                   <table class="table">
                     <thead class="table-dark">
                      <tr>
-                       <th>#</th>
-                       <th>name</th>
-                       <th>description</th>
-                       <th>price</th>
-                       <th>image</th>
+                       <th scope="col">#</th>
+                       <th scope="col">name</th>
+                       <th scope="col">description</th>
+                       <th scope="col">price</th>
+                       <th scope="col">image</th>
                      </tr>
                    </thead>
                    <tbody>
                      @foreach($products as $product)
                       <tr>
                         <th scope="row">{{$product->id}}</th>
-                        <th>{{$product->id}}</th>
-                        <th>{{$product->name}}</th>
-                        <th>{{$product->description}}</th>
-                        <th>{{$product->price}}</th>
-                        <th>{{$product->image}}</th>
+                        <td>{{$product->name}}</td>
+                        <td>{{$product->description}}</td>
+                        <td>{{$product->price}}</td>
+                        <td>{{$product->image}}</td>
+                        <td>{{$product->category->name}}</td>
+                        <td style="display:flex"> 
+                            <form action="{{ url('/delete-product/.$product->id') }}" methode="post">
+                                {{ methode_field('DELETE') }}
+                                {{ csrf_field() }}
+                                <button class="btn btn-danger" type="submit">Delete</button>
+                            </form>
+                        </td>
+
                       </tr>
                      @endforeach
   

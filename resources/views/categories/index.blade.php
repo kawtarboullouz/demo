@@ -6,7 +6,7 @@
                 
                 <div class="container">
                   <h3>Categories</h3>
-                  <a class= "btn btn-primary float-right mb-4" href="{{ url('/add-product') }}">Add Product</a>
+                  <a class= "btn btn-primary float-right mb-4" href="{{ url('/add-category') }}">Add Category</a>
                   <table class="table">
                     <thead class="table-dark">
                      <tr>
